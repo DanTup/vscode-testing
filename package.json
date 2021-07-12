@@ -10,16 +10,28 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:vscode-testing.helloWorld"
+		"*"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "vscode-testing.helloWorld",
-				"title": "Hello World"
+				"command": "vscode-testing.toggleGenerated",
+				"title": "Toggle Generated Code",
+				"icon": {
+					"dark": "./icons/toggle.svg",
+					"light": "./icons/toggle.svg"
+				}
 			}
-		]
+		],
+		"menus": {
+			"editor/title": [
+				{
+					"command": "vscode-testing.toggleGenerated",
+					"group": "navigation@1"
+				}
+			]
+		}
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
